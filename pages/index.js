@@ -5,6 +5,8 @@ import TemplatePanel from '../components/TemplatePanel';
 import { useState } from 'react';
 import { getTemplates } from '../utils/supaclient';
 import { useEffect } from 'react';
+import Link from 'next/link'
+
 export default function Home() {
   const [templates, setTemplates] = useState([])
   const [showTemplatesPanel, setShowTemplatesPanel] = useState(false);
@@ -20,16 +22,14 @@ export default function Home() {
     <div className="h-screen bg-gray-800 space-y-3">
       <Head>
         <title>Sprite Manager</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
       </Head>
       <nav className='border-b border-gray-600 text-sm p-3 text-white' >
-        <a href="/">Home</a>
+        <Link href="/">Home</Link>
       </nav>
       <main className='flex flex-col items-center text-center'>
         <div className='flex flex-col py-8'>
           <Typography.Title level={2}> Sprites </Typography.Title>
-          <Typography> Preview sprites - so here's a microfrontend to preview sprites </Typography>
+          <Typography> Preview sprites - so here a microfrontend to preview sprites </Typography>
         </div>
         <Editor
           onSelectChangeTemplate={() => setShowTemplatesPanel(true)}
